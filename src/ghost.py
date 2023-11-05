@@ -23,7 +23,7 @@ class Ghost:
     _shutdown_requested = False
     _start_time = None
 
-    def __init__(self, ttl, sleep_duration):
+    def __init__(self, ttl=None, sleep_duration=None):
         self.ttl = ttl
         self.sleep_duration = sleep_duration
         signal.signal(signal.SIGABRT, self.signal_handler)
@@ -34,6 +34,8 @@ class Ghost:
 
     @ttl.setter
     def ttl(self, value):
+        if value is None:
+            value = 0
         self._ttl = int(value)
 
     @property
@@ -42,6 +44,8 @@ class Ghost:
 
     @sleep_duration.setter
     def sleep_duration(self, value):
+        if value is None:
+            value = 0
         self._sleep_duration = int(value)
 
     @property
