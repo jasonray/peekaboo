@@ -69,8 +69,7 @@ class Ghost:
     def is_expired(self):
         if self.ttl == 0:
             return False
-        else:
-            return self.uptime > self.ttl
+        return self.uptime > self.ttl
 
     @property
     def pid(self):
