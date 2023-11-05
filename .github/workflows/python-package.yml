@@ -39,4 +39,4 @@ jobs:
     - name: Check Style 
       run: |
         # make lint-no-error
-        # make lint
+        make lint
