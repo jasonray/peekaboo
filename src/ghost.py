@@ -96,6 +96,8 @@ class Ghost:
                 time.sleep(self.sleep_duration)
         self.log(f"process complete [uptime={round(self.uptime,1)}]")
 
+    # even though the next method does not use frame, it must have it as part of the signature
+    # pylint: disable-next=unused-argument
     def signal_handler(self, signum, frame):
         self.log(f'received signal [{signum}]')
         if signum == 6:
