@@ -35,7 +35,7 @@ class Ghost:
     @ttl.setter
     def ttl(self, value):
         if value is None:
-            value=0
+            value = 0
         self._ttl = int(value)
 
     @property
@@ -45,7 +45,7 @@ class Ghost:
     @sleep_duration.setter
     def sleep_duration(self, value):
         if value is None:
-            value=0
+            value = 0
         self._sleep_duration = int(value)
 
     @property
