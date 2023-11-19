@@ -27,6 +27,8 @@ class Ghost:
         self.ttl = ttl
         self.sleep_duration = sleep_duration
         signal.signal(signal.SIGABRT, self.signal_handler)
+        signal.signal(signal.SIGTERM, self.signal_handler)
+        signal.signal(signal.SIGINT, self.signal_handler)
 
     @property
     def ttl(self):
@@ -104,7 +106,7 @@ class Ghost:
     # pylint: disable-next=unused-argument
     def signal_handler(self, signum, frame):
         self.log(f'received signal [{signum}]')
-        if signum == 6:
+        if signum == signal.SIGABRT:
             self.shutdown_requested = True
             self.log('shutdown requested')
 
